@@ -25,7 +25,7 @@ public class UserDAO {
 
     public long insert(User user){
 
-        ContentValues  values = new ContentValues();
+        ContentValues values = new ContentValues();
         values.put("name", user.getName());
         values.put("email", user.getEmail());
         values.put("last_name", user.getLastName());
@@ -33,11 +33,20 @@ public class UserDAO {
         return base.insert("user",null, values);
     }
 
+    public void update(User user){
+        ContentValues values = new ContentValues();
+        values.put("name", user.getName());
+        values.put("email", user.getEmail());
+        values.put("last_name", user.getLastName());
+        values.put("password",user.getPassword());
+        base.update("user",values,"id=?",new String[]{String.valueOf(user.getId())});
+    }
+
     public List<User> userList(){
 
         List<User> users = new ArrayList<>();
 
-        Cursor  cursor = base.query("user",new String[]{"name","last_name","email","password"},
+        Cursor cursor = base.query("user",new String[]{"name","last_name","email","password","id"},
                 null,null,null,null,null);
 
 
@@ -48,6 +57,7 @@ public class UserDAO {
             user.setLastName(cursor.getString(1));
             user.setEmail(cursor.getString(2));
             user.setPassword(cursor.getString(3));
+            user.setId(cursor.getInt(4));
 
             users.add(user);
         }

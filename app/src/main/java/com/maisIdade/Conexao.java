@@ -23,10 +23,10 @@ public class Conexao extends SQLiteOpenHelper {
                 "email varchar(50), " +
                 "password varchar(10))");
 
-        db.execSQL("create table user_adm(id integer primary key autoincrement," +
+        db.execSQL("create table video(id integer primary key autoincrement," +
                 "name varchar(50), " +
-                "email varchar(50), " +
-                "password varchar(10))");
+                "tipo varchar(50), " +
+                "url varchar(100))");
 
 
     }

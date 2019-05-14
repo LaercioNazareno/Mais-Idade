@@ -2,6 +2,7 @@ package com.maisIdade.activity;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -262,7 +263,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             List<User> userList = userDAO.userList();
 
             for(User user : userList){
-                if(user.getName().equals(mEmail) && user.getPassword().equals(mPassword)){
+                if(user.getEmail().equals(mEmail) && user.getPassword().equals(mPassword)){
+                    SharedPreferences sharedPreferences = getSharedPreferences("preferences", getBaseContext().MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putInt("userId", user.getId());
+                    editor.apply();
                     return true;
                 }
             }

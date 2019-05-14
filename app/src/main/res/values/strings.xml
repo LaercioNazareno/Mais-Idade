@@ -14,4 +14,13 @@
         completions."
     </string>
     <string name="title_activity_form_cad_user">FormCadUserActivity</string>
+    <string name="title_activity_add_video">AddVideoActivity</string>
+    <string name="title_activity_video">VideoActivity</string>
+    <string name="title_activity_list_videos">ListVideosActivity</string>
+    <string name="exercicios_equilibrio">Exercicios de Equilibrio</string>
+    <string name="exercicios_memoria">Exercicios de Memoria</string>
+    <string name="prevencao">Previnindo Contra Quedas</string>
+    <string name="dicas_Saude">Dicas de Saúde</string>
+    <string name="incontinencia_urinaria">Incontinencia Urinaria</string>
+    <string name="direitos">Seus Direitos</string>
 </resources>

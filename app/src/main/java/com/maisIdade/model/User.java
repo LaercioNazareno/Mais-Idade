@@ -1,7 +1,9 @@
 package com.maisIdade.model;
 
 public class User {
+
     private String email, name, lastName, password;
+    private int id;
 
     public User() {
     }
@@ -13,6 +15,14 @@ public class User {
         this.lastName = lastName;
         this.password = password;
 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getEmail() {
