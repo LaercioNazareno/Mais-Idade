@@ -1,59 +1,60 @@
 package com.maisIdade.DAO;
 
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.maisIdade.Conexao;
+import com.maisIdade.model.Pdf;
 import com.maisIdade.model.Video;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class VideoDAO {
+public class PdfDAO {
 
     private Conexao connection;
     private SQLiteDatabase base;
 
-    public VideoDAO(Context context){
+    public PdfDAO(Context context){
 
         connection = new Conexao(context);
         base = connection.getWritableDatabase();
 
     }
 
-    public long insert(Video video){
+    public long insert(Pdf video){
 
         ContentValues values = new ContentValues();
         values.put("name", video.getNome());
         values.put("tipo", video.getTipo());
-        values.put("url", video.getUrl());
-        return base.insert("video",null, values);
+        values.put("url", video.getLink());
+        return base.insert("pdf",null, values);
     }
 
     public void update(Video video){
         ContentValues values = new ContentValues();
         values.put("name", video.getNome());
         values.put("tipo", video.getTipo());
-        base.update("user",values,"id=?",new String[]{String.valueOf(video.getId())});
+        base.update("pdf",values,"id=?",new String[]{String.valueOf(video.getId())});
     }
 
-    public List<Video> videoList(){
+    public List<Pdf> pdfList(){
 
-        List<Video> videos = new ArrayList<>();
+        List<Pdf> videos = new ArrayList<>();
 
-        Cursor cursor = base.query("video",new String[]{"name","tipo","url","id"},
+        Cursor cursor = base.query("pdf",new String[]{"name","tipo","url","id"},
                 null,null,null,null,null);
 
 
         while(cursor.moveToNext()){
-            Video video = new Video();
+            Pdf video = new Pdf();
             video.setNome(cursor.getString(0));
             video.setTipo(cursor.getString(1));
-            video.setUrl(cursor.getString(2));
+            video.setLink(cursor.getString(2));
             video.setId(cursor.getInt(3));
-
             videos.add(video);
         }
 
@@ -61,10 +62,11 @@ public class VideoDAO {
 
     }
 
-    public Video getVideoById(int id){
+    public Pdf getVideoById(int id){
         Cursor cursor = base.query("video",new String[]{"name","tipo","url","id"},
                 null,null,null,null,null);
-        Video video = new Video();
+
+        Pdf video = new Pdf();
 
         while(cursor.moveToNext()){
 
@@ -72,7 +74,7 @@ public class VideoDAO {
             if(cursor.getInt(3) == id) {
                 video.setNome(cursor.getString(0));
                 video.setTipo(cursor.getString(1));
-                video.setUrl(cursor.getString(2));
+                video.setLink(cursor.getString(2));
                 video.setId(cursor.getInt(3));
             }
         }
@@ -80,21 +82,21 @@ public class VideoDAO {
         return video;
     }
 
-    public List<Video> videoTypeList(String type) {
+    public List<Pdf> videoList(String type) {
 
-        List<Video> videos = new ArrayList<>();
+        List<Pdf> videos = new ArrayList<>();
 
-        Cursor cursor = base.query("video", new String[]{"name", "tipo", "url", "id"},
+        Cursor cursor = base.query("pdf", new String[]{"name", "tipo", "url", "id"},
                 null, null, null, null, null);
 
 
         while (cursor.moveToNext()) {
 
             if (cursor.getString(1).equals(type)) {
-                Video video = new Video();
+                Pdf video = new Pdf();
                 video.setNome(cursor.getString(0));
                 video.setTipo(cursor.getString(1));
-                video.setUrl(cursor.getString(2));
+                video.setLink(cursor.getString(2));
                 video.setId(cursor.getInt(3));
 
                 videos.add(video);
@@ -104,4 +106,5 @@ public class VideoDAO {
 
         return videos;
     }
+
 }

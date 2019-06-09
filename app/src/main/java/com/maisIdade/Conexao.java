@@ -28,6 +28,10 @@ public class Conexao extends SQLiteOpenHelper {
                 "tipo varchar(50), " +
                 "url varchar(100))");
 
+        db.execSQL("create table pdf(id integer primary key autoincrement," +
+                "name varchar(50), " +
+                "tipo varchar(50), " +
+                "url varchar(100))");
 
     }
 

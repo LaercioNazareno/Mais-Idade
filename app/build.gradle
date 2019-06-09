@@ -31,4 +31,5 @@ dependencies {
     implementation 'com.android.support:gridlayout-v7:28.0.0'
     implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
     implementation files('libs/YouTubeAndroidPlayerApi.jar')
+    implementation 'com.google.apis:google-api-services-drive:v3-rev110-1.23.0'
 }

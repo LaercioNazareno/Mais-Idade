@@ -19,12 +19,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button videoAddBtn = findViewById(R.id.videoAddBtn), cartilhasAddBtn = findViewById(R.id.cartilhasAddBtn);
+        Button videoAddBtn = findViewById(R.id.videoAddBtn), editarArquivos = findViewById(R.id.editarArquivosBtn);
 
         if(!temAutorizacao()){
             videoAddBtn.setVisibility(View.INVISIBLE);
-            cartilhasAddBtn.setVisibility(View.INVISIBLE);
+            editarArquivos.setVisibility(View.INVISIBLE);
         }
+
+
 
         CardView cardExercicoEquilibrio = findViewById(R.id.cardExercicoEquilibrio);
 
@@ -100,6 +102,15 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        editarArquivos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplication(),EditarArquivosActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
 
@@ -113,6 +124,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean temAutorizacao(){
-       return getUser().getEmail().equals("pdayrell@gmail.com");
+       return getUser().getEmail().equals("idadenotadez@gmail.com");
     }
 }

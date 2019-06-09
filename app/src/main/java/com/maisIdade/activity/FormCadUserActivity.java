@@ -19,7 +19,6 @@ public class FormCadUserActivity extends Activity {
             setContentView(R.layout.activity_form_cad_user);
 
             Button cadBtn = findViewById(R.id.cadastrarBtn);
-
             cadBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -27,6 +26,7 @@ public class FormCadUserActivity extends Activity {
                     setView();
                 }
             });
+
         }
 
         private void setView(){

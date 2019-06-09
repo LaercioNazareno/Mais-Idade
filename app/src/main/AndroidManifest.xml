@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.maisIdade">
-    <!-- To auto-complete the email text field in the login form with the user's emails -->
+
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -12,10 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
+        <activity android:name=".activity.EditarArquivosActivity"></activity>
+        <activity android:name=".activity.PdfActivity" />
         <activity
             android:name=".activity.ListVideosActivity"
             android:label="@string/title_activity_list_videos"
-            android:theme="@style/NoActionBar"></activity>
+            android:theme="@style/NoActionBar" />
         <activity
             android:name=".activity.VideoActivity"
             android:label="@string/title_activity_video"

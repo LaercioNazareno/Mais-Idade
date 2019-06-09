@@ -1,19 +1,20 @@
 package com.maisIdade.model;
 
-public class Video {
+public class Pdf {
 
+    private String link;
     private String nome;
     private String tipo;
-    private String url;
     private int id;
 
-    public Video(String nome, String tipo, String url) {
+    public Pdf(String nome, String tipo, String url ) {
+        this.link = url;
         this.nome = nome;
         this.tipo = tipo;
-        this.url = url.split("/")[3];
     }
 
-    public Video() {
+    public Pdf() {
+
     }
 
     public int getId() {
@@ -24,14 +25,6 @@ public class Video {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public String getTipo() {
         return tipo;
     }
@@ -40,12 +33,20 @@ public class Video {
         this.tipo = tipo;
     }
 
-    public String getUrl() {
-        return url;
+    public String getLink() {
+        return link;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     @Override

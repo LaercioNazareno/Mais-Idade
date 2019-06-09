@@ -28,7 +28,7 @@ public class VideoActivity extends YouTubeBaseActivity implements YouTubePlayer.
 
         VideoDAO videoDAO = new VideoDAO(getBaseContext());
 
-        Video video = videoDAO.getVideoById(id+1);
+        Video video = videoDAO.getVideoById(id);
         idVideo = video.getUrl();
 
         YouTubePlayerView playerYouTube = findViewById(R.id.playerYouTube);
